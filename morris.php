@@ -59,8 +59,14 @@
             <span>Data Tables</span>
           </a>
           <ul class="sub">
-            <li><a href="basic_table.php">Basic Table</a></li>
+            <li><a href="basic_table_1v.php">Basic Table</a></li>
               <li><a href="view_tableCmch.php">Информация о машинах</a></li>
+              <li> <a href="form_input.php">Добавить машину</a></li>
+              <li> <a href="insert_perf.php">Добавить экспл. хар-ки</a></li>
+              <li> <a href="insert_econom.php">Добавить эконом. хар-ки</a></li>
+              <li> <a href="form_deleteMachine.php">Удалить машину</a></li>
+              <li> <a href="form_deletePerf.php">Удалить экспл. хар-ки</a></li>
+              <li> <a href="form_deleteEconom.php">Удалить эконом. хар-ки</a></li>
 
           </ul>
         </li>

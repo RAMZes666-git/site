@@ -87,6 +87,12 @@
                     <ul class="sub">
                         <li><a href="basic_table_1v.php">Basic Table</a> </li>
                         <li<a href="view_tableCmch.php">Информация о машинах</a></li>
+                        <li> <a href="form_input.php">Добавить машину</a></li>
+                        <li> <a href="insert_perf.php">Добавить экспл. хар-ки</a></li>
+                        <li> <a href="insert_econom.php">Добавить эконом. хар-ки</a></li>
+                        <li> <a href="form_deleteMachine.php">Удалить машину</a></li>
+                        <li> <a href="form_deletePerf.php">Удалить экспл. хар-ки</a></li>
+                        <li> <a href="form_deleteEconom.php">Удалить эконом. хар-ки</a></li>
 
                     </ul>
                 </li>
@@ -137,23 +143,23 @@
                         <h4>Выберите машину</h4>
 
                     <select name="SelectOption" id="SelectOption1" class="form-control" style="width: 40% " onclick="calculateResult()" >     <!-- onchange="getValue()" -->
-                        <option selected disabled>выберите машину</option>    <!--Экскаватор Амкодор 732 Погрузчик Амкодор 702 Каток HAMM 3414 VIO Автогрейдер Титан 8220 -->
-                        <?php
-                        include "connectSQL.php";
-                       IF( $conn ) {
-                            $result = sqlsrv_query($conn, "SELECT  *  FROM car_brands");
-                            while ($myrow = sqlsrv_fetch_array($result)) { ?>
-                             <option value="<?php echo $myrow[0]?>"><?php echo $myrow[1]?></option>
-                            <?php }
-                        }
-                        ELSE
-                            {
-                                echo "Connection could not be established.\n";
-                                DIE(print_r(sqlsrv_errors(), true));
-                            }
+                      <option selected disabled>выберите машину</option>    <!--Экскаватор Амкодор 732 Погрузчик Амкодор 702 Каток HAMM 3414 VIO Автогрейдер Титан 8220 -->
+                      <?php
+                      include "connectSQL.php";
+                      IF( $conn ) {
+                          $result = sqlsrv_query($conn, "SELECT  *  FROM car_brands");
+                          while ($myrow = sqlsrv_fetch_array($result)) { ?>
+                              <option value="<?php echo $myrow[0]?>"><?php echo $myrow[1]?></option>
+                          <?php }
+                      }
+                      ELSE
+                      {
+                          echo "Connection could not be established.\n";
+                          DIE(print_r(sqlsrv_errors(), true));
+                      }
 
-                        ?>
-                    </select>
+                      ?>
+                  </select>
 
             </div>
 
@@ -711,7 +717,7 @@
         if(checkbox2.checked == true){
              Vl=0.05;
         } else  {Vl=0 }
-        var Sns=(Ztzar+Zzp+Zzpmash+0.01+0.01+Zkrzar)*0.6/100;
+        var Sns=(Ztzar+Zzp+Zzpm+0.01+0.01+Zkrzar)*0.6/100;
         var Pz=Dp+Vl+Sns;
         var checkbox3=document.getElementById("iif");
         if(checkbox3.checked == true){
@@ -720,11 +726,11 @@
 
         var checkbox4=document.getElementById("Ssoc");
         if(checkbox4.checked ==true){
-             Ssoc=(Zzp+Ztzar+Zzpmash+Zkrzar)*34/100;
+             Ssoc=(Zzp+Ztzar+Zzpm+Zkrzar)*34/100;  //Zzpmash
         } else  {Ssoc=0}
         var checkbox5=document.getElementById("Cx");
         if(checkbox5.checked == true){
-             Cx=(Zzp+Ztzar+Zzpmash+Zkrzar)*2/100;
+             Cx=(Zzp+Ztzar+Zzpm+Zkrzar)*2/100;
         } else {Cx=0}
          H=Iif+Ssoc+Cx;
          Prc=Cmch+Hr+Pn+Pz+H;
