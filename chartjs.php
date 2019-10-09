@@ -24,6 +24,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"/>
   <!--<script type="text/javascript" src="lib/js/fusioncharts.js"> </script> -->
 
+
+
+
 </head>
 
 <body>
@@ -67,6 +70,7 @@
               <li> <a href="form_deleteMachine.php">Удалить машину</a></li>
               <li> <a href="form_deletePerf.php">Удалить экспл. хар-ки</a></li>
               <li> <a href="form_deleteEconom.php">Удалить эконом. хар-ки</a></li>
+              <li> <a href="actual_values.php">Информ. о фактич. знач.</a></li>
 
           </ul>
         </li>
@@ -113,6 +117,8 @@
       <div class="row">
         <div class="col-lg-12">
 
+               <div id="page-content">
+
           <?php
                     include 'standartCode.php';
 
@@ -122,7 +128,11 @@
           <h4><i class="fa fa-angle-right"></i> График </h4>
 
           <!-- width="400" height="400"-->
-          <canvas id="lineChart" ></canvas>
+           <canvas id="lineChart" > </canvas>
+                </div>
+            <a class="word-export" href="javascript:void(0)"> Export as .doc </a>
+            <!-- <button onclick="Export2Doc('export','стандарт(сум.)');"> экспорт как .doc</button> -->
+
         </div>
       </div>
 
@@ -139,12 +149,50 @@
 
 
 
+ <!-- <script>
+
+    function Export2Doc(element, filename = ''){
+        var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+        var postHtml = "</body></html>";
+        var html = preHtml+document.getElementById(element).innerHTML+postHtml;
+
+        var blob = new Blob(['\ufeff', html], {
+            type: 'application/msword'
+        });
+
+        // Specify link url
+        var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+
+        // Specify file name
+        filename = filename?filename+'.doc':'document.doc';
+
+        // Create download link element
+        var downloadLink = document.createElement("a");
+
+        document.body.appendChild(downloadLink);
+
+        if(navigator.msSaveOrOpenBlob ){
+            navigator.msSaveOrOpenBlob(blob, filename);
+        }else{
+            // Create a link to the file
+            downloadLink.href = url;
+
+            // Setting the file name
+            downloadLink.download = filename;
+
+            //triggering the function
+            downloadLink.click();
+        }
+
+        document.body.removeChild(downloadLink);
+    }
+
+</script> -->
+
 <!--https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js   -->
 <!--https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.0/Chart.bundle.js -->
 <!--https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js -->
 <script src="Chart.bundle.js" ></script>
-
-
 
 <script  >
     var x = JSON.parse('<?php echo JSON_encode($mass);?>');
@@ -219,7 +267,25 @@
         }
     });
 
+</script>
 
+<script>
+    var canvas = document.getElementById("lineChart");
+    var image = canvas.toDataURL("image/png"); // build url of the image
+
+
+</script>
+
+<script src="jquery1.min.js"></script>
+<script src="FileSaver.js"></script>
+<script src="jquery.wordexport.js"></script>
+
+<script >
+    jQuery(document).ready(function($) {
+        $("a.word-export").click(function(event) {
+            $("#page-content").wordExport();
+        });
+    });
 </script>
 
 

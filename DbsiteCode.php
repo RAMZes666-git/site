@@ -86,13 +86,14 @@
                     </a>
                     <ul class="sub">
                         <li><a href="basic_table_1v.php">Basic Table</a> </li>
-                        <li<a href="view_tableCmch.php">Информация о машинах</a></li>
+                        <li><a href="view_tableCmch.php">Информация о машинах</a></li>
                         <li> <a href="form_input.php">Добавить машину</a></li>
                         <li> <a href="insert_perf.php">Добавить экспл. хар-ки</a></li>
                         <li> <a href="insert_econom.php">Добавить эконом. хар-ки</a></li>
                         <li> <a href="form_deleteMachine.php">Удалить машину</a></li>
                         <li> <a href="form_deletePerf.php">Удалить экспл. хар-ки</a></li>
                         <li> <a href="form_deleteEconom.php">Удалить эконом. хар-ки</a></li>
+                        <li> <a href="actual_values.php">Информ. о фактич. знач.</a></li>
 
                     </ul>
                 </li>
@@ -200,47 +201,7 @@
                 </div>
             </div>
 
-            <div class="row mt">
-                <label class="col-sm-4 text-center"  style="font-size: 14px">Затраты на машину техпомощи </label>
-                <label class="col-sm-4 text-center"  style="font-size: 14px">Затраты на тягач </label>
-            </div>
-            <div class="row mt" style="margin-top: 12px">
 
-                <!--  <label class="col-lg-2"  > Затраты на машину техпомощи</label>-->
-                    <div class="col-sm-4 text-center">
-                        <input type='button' value='-' class='qtyminus1' field='quantity1'  />
-                        <input type='text' name='quantity1' value='0' class='qty1' />
-                        <input type='button' value='+' class='qtyplus1' field='quantity1' />
-                    </div>
-
-
-                <!-- <span> Затраты на тягач<>-->
-                      <div class="col-sm-4 text-center">
-                          <input type='button' value='-' class='qtyminus2' field='quantity2'  />
-                          <input type='text' name='quantity2' value='0' class='qty2' />
-                          <input type='button' value='+' class='qtyplus2' field='quantity2' />
-                      </div>
-            </div>
-                <div class="row mt" >
-                    <label class="col-sm-4 text-center"  style="font-size: 14px">Затраты на прицеп </label>
-                    <label class="col-sm-4 text-center"  style="font-size: 14px">Затраты на кран </label>
-                </div>
-              <!--   <label > Затраты на прицеп</label>-->
-                <div class="row mt" style="margin-top: 12px">
-              <div class="col-sm-4 text-center">
-                    <input type='button' value='-' class='qtyminus3' field='quantity3'  />
-                    <input type='text' name='quantity3' value='0' class='qty3' />
-                    <input type='button' value='+' class='qtyplus3' field='quantity3' />
-                </div>
-
-                <div class="col-sm-4 text-center">
-                    <input type='button' value='-' class='qtyminus4' field='quantity4'  />
-                    <input type='text' name='quantity4' value='0' class='qty4' />
-                    <input type='button' value='+' class='qtyplus4' field='quantity4' />
-                </div>
-            </div>
-
-      </div>
             <div class="row mt">
                 <div class="col-lg-12">
 
@@ -261,6 +222,48 @@
 
                     </div>
                 </div>
+            </div>
+
+            <div class="row mt">
+                <label class="col-sm-4 text-center"  style="font-size: 14px">Затраты на машину техпомощи </label>
+                <label class="col-sm-4 text-center"  style="font-size: 14px">Затраты на тягач </label>
+            </div>
+            <div class="row mt" style="margin-top: 12px">
+
+                <!--  <label class="col-lg-2"  > Затраты на машину техпомощи</label>-->
+                <div class="col-sm-4 text-center">
+                    <input type='button' value='-' class='qtyminus1' field='quantity1'  />
+                    <input type='text' name='quantity1' value='0' class='qty1' />
+                    <input type='button' value='+' class='qtyplus1' field='quantity1' />
+                </div>
+
+
+                <!-- <span> Затраты на тягач<>-->
+                <div class="col-sm-4 text-center">
+                    <input type='button' value='-' class='qtyminus2' field='quantity2'  />
+                    <input type='text' name='quantity2' value='0' class='qty2' />
+                    <input type='button' value='+' class='qtyplus2' field='quantity2' />
+                </div>
+            </div>
+            <div class="row mt" >
+                <label class="col-sm-4 text-center"  style="font-size: 14px">Затраты на прицеп </label>
+                <label class="col-sm-4 text-center"  style="font-size: 14px">Затраты на кран </label>
+            </div>
+            <!--   <label > Затраты на прицеп</label>-->
+            <div class="row mt" style="margin-top: 12px">
+                <div class="col-sm-4 text-center">
+                    <input type='button' value='-' class='qtyminus3' field='quantity3'  />
+                    <input type='text' name='quantity3' value='0' class='qty3' />
+                    <input type='button' value='+' class='qtyplus3' field='quantity3' />
+                </div>
+
+                <div class="col-sm-4 text-center">
+                    <input type='button' value='-' class='qtyminus4' field='quantity4'  />
+                    <input type='text' name='quantity4' value='0' class='qty4' />
+                    <input type='button' value='+' class='qtyplus4' field='quantity4' />
+                </div>
+            </div>
+
             </div>
 
             <div class="checkbox" style="font-size: 15px">
@@ -304,8 +307,8 @@
           <div class="row ">
               <div class="zakrep">
                   <h2 id="time">СМЧ - <label id="cmch">0</label> </h2>
-                  <h2 id="time">ПРЦ - <label id="prc"></label> </h2>
-                  <h2 id="time">ПРЦ с налогами - <label id="prc_tax"></label> </h2>
+                <!-- <h2 id="time">ПРЦ - <label id="prc"></label> </h2>
+                   <h2 id="time">ПРЦ с налогами - <label id="prc_tax"></label> </h2> -->
               </div>
           </div>
         </form>
@@ -745,8 +748,8 @@
         var Prc_tax =Prc+Ep+Nds;
 
         document.getElementById('cmch').innerHTML=Cmch.toFixed(2);
-        document.getElementById('prc').innerHTML=Prc.toFixed(2);
-        document.getElementById('prc_tax').innerHTML=Prc_tax.toFixed(2);
+        //document.getElementById('prc').innerHTML=Prc.toFixed(2);
+       /// document.getElementById('prc_tax').innerHTML=Prc_tax.toFixed(2);
     }
 
 </script>

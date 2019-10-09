@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 
-<head>
+<head xmlns="http://www.w3.org/1999/html">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -73,6 +73,7 @@
                         <li> <a href="form_deleteMachine.php">Удалить машину</a></li>
                         <li> <a href="form_deletePerf.php">Удалить экспл. хар-ки</a></li>
                         <li> <a href="form_deleteEconom.php">Удалить эконом. хар-ки</a></li>
+                        <li> <a href="actual_values.php">Информ. о фактич. знач.</a></li>
 
 
                     </ul>
@@ -128,7 +129,7 @@
             <div class="row">
 
                 <div class="col-lg-12 ">
-                    <form role="form" class="form-horizontal style-form" action="CalcDBsite.php" method="post">
+                    <form role="form" class="form-horizontal style-form" action="form_saveINbd.php"   method="post">
                     <h4>Выберите машину</h4>
 
                     <select   name="SelectOption1" id="SelectOption1" class="form-control" style="width: 40% " >     <!-- onchange="getValue()" -->
@@ -149,24 +150,13 @@
 
                         ?>
                     </select>
-                    <input class="btn btn-theme "  type="submit" value="Рассчитать" onclick="Calc()">
-                    </form>
-            </div>
-                <div>
-                    <?php
-                    include_once ("CalcDBsiteCode.php");
-                    include_once ("CalcDBsiteCode2.php");
-                    ?>
-                </div>
+                    <input class="btn btn-theme "  type="submit" value="Рассчитать" >
 
-                <div class="col-lg-6">
-                    <div class="content-panel">
-                        <h4><i class="fa fa-angle-right"></i> График сравнения себестоимости машино-часа работы техники</h4>
-                        <div class="panel-body text-center">
-                            <canvas id="lineChart" height="300" width="400"></canvas>
-                        </div>
-                    </div>
+                    </form>
+
+
                 </div>
+            </div>
             <!-- row -->
 
             <!-- /row -->
@@ -177,66 +167,6 @@
     <!--footer start-->
 
 </section>
-
-<script src="Chart.bundle2.js" ></script>
-<script  >
-    var x = JSON.parse('<?php echo JSON_encode($mass);?>');
-    var y = JSON.parse('<?php echo JSON_encode($mass1);?>');
-    var yy = JSON.parse('<?php echo JSON_encode($mass2);?>');
-    var ctx = document.getElementById("lineChart").getContext("2d");
-
-
-    myLineChart = new Chart(ctx, {
-        type: 'line',  //NegativeTransparentLine
-        data: {
-            labels: x,
-            datasets: [{
-                data: y,
-                fill: false,
-                label:'с учётом старения',
-                //borderWidth: 2,
-                pointRadius:0,
-                // strokeColor: "rgba(0,252,0,0)",
-
-                // pointStrokeColor: "#00ff00",
-                borderColor: "#00ff00",
-            },
-
-                {
-                    data: yy,
-                    fill: false,
-                    label:'без учёта старения',
-                    pointRadius:0,
-                    borderColor: "red",
-            },
-
-            ],
-            option: {
-
-                scales: {
-
-                    yAxes: [{
-
-                        ticks: {
-                            beginAtZero: true
-
-                        }
-                    }],
-                    xAxes: [{
-                        display: true,
-
-                    }],
-                },
-
-            }
-
-
-
-        }
-    });
-
-
-</script>
 
 
 <!-- js placed at the end of the document so the pages load faster -->

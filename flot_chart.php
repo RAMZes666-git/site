@@ -67,6 +67,7 @@
                         <li> <a href="form_deleteMachine.php">Удалить машину</a></li>
                         <li> <a href="form_deletePerf.php">Удалить экспл. хар-ки</a></li>
                         <li> <a href="form_deleteEconom.php">Удалить эконом. хар-ки</a></li>
+                        <li> <a href="actual_values.php">Информ. о фактич. знач.</a></li>
 
                     </ul>
                 </li>
